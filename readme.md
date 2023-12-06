@@ -116,3 +116,4 @@ Then save your file like this:
 # Credits
 
 - [@osm0sis](https://github.com/osm0sis) for the `gen_pif_custom.sh` script on [xda](https://xdaforums.com/t/tools-zips-scripts-osm0sis-odds-and-ends-multiple-devices-platforms.2239421/post-89173470)
+- [@juleast](https://github.com/juleast) for the ofiginal `gen_pif_custom.sh` on [Github](https://github.com/juleast/GeneratePIF).
