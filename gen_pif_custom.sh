@@ -93,9 +93,10 @@ main() {
   fi;
   echo "$FIRST_API_LEVEL";
 
-  if [ "$FIRST_API_LEVEL" -gt 32 ]; then
-    item "First API level 33 or higher, resetting to 32 ...";
-    FIRST_API_LEVEL=32;
+  if [ "$FIRST_API_LEVEL" -gt 27 ]; then
+    item "First API level 28 or higher, probably will not work";
+	cd ..
+    return
   fi;
   LIST="$LIST FIRST_API_LEVEL";
 
