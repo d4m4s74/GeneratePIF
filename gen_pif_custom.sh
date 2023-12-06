@@ -99,20 +99,15 @@ main() {
   fi;
   LIST="$LIST FIRST_API_LEVEL";
 
-  if [ -f custom.pif.$FORMAT ]; then
-    item "Removing existing custom.pif.$FORMAT ...";
-    rm -f custom.pif.$FORMAT;
-  fi;
-
   item "Writing new custom.pif.$FORMAT ...";
-  [ "$FORMAT" == "json" ] && echo '{' | tee -a custom.pif.json;
+  [ "$FORMAT" == "json" ] && echo '{' | tee -a ../custom.pifs.json;
   for PROP in $LIST; do
     case $FORMAT in
       json) eval echo '\ \ \"$PROP\": \"'\$$PROP'\",';;
       prop) eval echo $PROP=\$$PROP;;
     esac;
-  done | sed '$s/,//' | tee -a custom.pif.$FORMAT;
-  [ "$FORMAT" == "json" ] && echo '}' | tee -a custom.pif.json;
+  done | sed '$s/,//' | tee -a ../custom.pifs.$FORMAT;
+  [ "$FORMAT" == "json" ] && echo -e '}\n\n' | tee -a ../custom.pifs.json;
 
   echo
   echo "Done!"
@@ -129,7 +124,8 @@ shdir=$(dirname "$(readlink -f "$shdir")");
 readarray -t dir_arr < <(find . -maxdepth 1 -type d)
 for ((a = 1 ; a < ${#dir_arr[@]} ; a++)); do echo "$a. ${dir_arr[$a]}"; done
 
-read -p "Enter number: " arr_index
+#read -p "Enter number: " arr_index
+arr_index=1
 if [ "$arr_index" = "" ]; then
   echo "What the...?"
   return
@@ -145,4 +141,5 @@ else
   cd $shdir
   cd ${dir_arr[$arr_index]}
   main
+  rm -rf ${dir_arr[$arr_index]}
 fi
