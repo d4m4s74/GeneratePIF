@@ -65,7 +65,7 @@ echo -e "Script by Juleast @ https://github.com/juleast \
         \n"
 
 # main script
-read -p "Paste repo URL here: " url
+read -p "Paste repo URL here, or press ctrl-c to stop: " url
 IFS='/' read -r -a url_arr <<< "$url"
 IFS='.' read -r -a git_dir_arr <<< "${url_arr[-1]}"
 git_dir=${git_dir_arr[0]}
