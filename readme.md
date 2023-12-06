@@ -59,17 +59,14 @@ This repo has scripts for generating custom PIF config files to use with PIF v14
      ./gen*
      ```
 
-5. Running the second script will output a list of directories in the root of the script's directory.
+5. The second script automagically generates a pif.json 
 
-6. Inputing the number corresponding to the desired directory will navigate to it and work its magic.
+6. The generated pif is automatically added to `custom.pifs.json` file in the directory.
 
-7. You will find your `custom.pif.json` file in the directory you chose in step 5.
+7. Repeat as needed.
 
-8. Rename this file to `pif.json` and move it inside `/data/adb` folder on your device using your favorite root explorer
-   - if you know how to use adb and shell commands:
-     ```bash
-     cp path_to_your_file /data/adb/
-     ```
+8. Copy a pif from the `custom.pifs.json` file to a file named `pif.json` and move it inside `/data/adb` folder on your device using your favorite root explorer
+   Tip: use pixelflasher to easily edit your pif.son
 
 #### For manual generation
 
